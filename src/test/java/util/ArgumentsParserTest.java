@@ -4,7 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import util.command.*;
 
-@SuppressWarnings({"InstanceMethodNamingConvention", "DesignForExtension", "HardCodedStringLiteral",
+@SuppressWarnings({"InstanceMethodNamingConvention", "DesignForExtension",
+        "HardCodedStringLiteral",
         "DuplicateStringLiteralInspection"})
 public class ArgumentsParserTest {
     private static Operation parse(final String... arguments) {
@@ -13,14 +14,16 @@ public class ArgumentsParserTest {
 
     @Test
     public void testAddOperationCreation() {
-        Assert.assertEquals(new AddOperation("content"), ArgumentsParserTest.parse("add", "content"));
+        Assert.assertEquals(new AddOperation("content"),
+                ArgumentsParserTest.parse("add", "content"));
     }
 
     @Test
     public void testAddOperationCreationWithExplicitPriorities() {
         Assert.assertEquals(new AddOperation("content", 1337),
                 ArgumentsParserTest.parse("add", "content", "1337"));
-        Assert.assertEquals(new AddOperation("content", 0), ArgumentsParserTest.parse("add", "content", "0"));
+        Assert.assertEquals(new AddOperation("content", 0),
+                ArgumentsParserTest.parse("add", "content", "0"));
         Assert.assertEquals(new AddOperation("content", -5),
                 ArgumentsParserTest.parse("add", "content", "-5"));
     }
@@ -37,7 +40,8 @@ public class ArgumentsParserTest {
 
     @Test
     public void testListOperationCreation() {
-        Assert.assertEquals(new ListOperation(), ArgumentsParserTest.parse("list"));
+        Assert.assertEquals(new ListOperation(),
+                ArgumentsParserTest.parse("list"));
     }
 
     @Test(expected = ParserException.class)
@@ -47,7 +51,8 @@ public class ArgumentsParserTest {
 
     @Test
     public void testRemoveOperationCreation() {
-        Assert.assertEquals(new RemoveOperation("abcd"), ArgumentsParserTest.parse("remove", "abcd"));
+        Assert.assertEquals(new RemoveOperation("abcd"),
+                ArgumentsParserTest.parse("remove", "abcd"));
     }
 
     @Test(expected = ParserException.class)
@@ -94,7 +99,8 @@ public class ArgumentsParserTest {
 
     @Test
     public void testReadOperationCreation() {
-        Assert.assertEquals(new ReadOperation("baba"), ArgumentsParserTest.parse("read", "baba"));
+        Assert.assertEquals(new ReadOperation("baba"),
+                ArgumentsParserTest.parse("read", "baba"));
     }
 
     @Test(expected = ParserException.class)

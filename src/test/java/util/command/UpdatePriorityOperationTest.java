@@ -20,7 +20,7 @@ public class UpdatePriorityOperationTest extends BaseOperationTest {
         final Operation op1 = new UpdatePriorityOperation("boo", 1337);
         final Operation op2 = new UpdatePriorityOperation("boo", 1337);
         Assert.assertEquals(op1, op2);
-        Assert.assertEquals(op1.hashCode(), op2.hashCode());
+        Assert.assertEquals((long) op1.hashCode(), (long) op2.hashCode());
         Assert.assertEquals(op1.toString(), op2.toString());
     }
 }

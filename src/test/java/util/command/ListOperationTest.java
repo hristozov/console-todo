@@ -11,7 +11,7 @@ public class ListOperationTest extends BaseOperationTest {
         listOperation.setDao(mockDao);
         this.context.checking(new Expectations() {{
             oneOf(mockDao).list();
-            will(returnValue(new String[] {"bar"}));
+            will(returnValue(new String[]{"bar"}));
         }});
         listOperation.run();
     }
@@ -21,7 +21,7 @@ public class ListOperationTest extends BaseOperationTest {
         final Operation op1 = new ListOperation();
         final Operation op2 = new ListOperation();
         Assert.assertEquals(op1, op2);
-        Assert.assertEquals(op1.hashCode(), op2.hashCode());
+        Assert.assertEquals((long) op1.hashCode(), (long) op2.hashCode());
         Assert.assertEquals(op1.toString(), op2.toString());
     }
 }

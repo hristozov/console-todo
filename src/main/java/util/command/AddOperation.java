@@ -2,8 +2,8 @@ package util.command;
 
 public class AddOperation extends AbstractOperation {
     private static final int DEFAULT_PRIORITY = 0;
-    private String content;
-    private int priority;
+    private final String content;
+    private final int priority;
 
     public AddOperation(final String content) {
         this(content, AddOperation.DEFAULT_PRIORITY);

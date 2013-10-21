@@ -20,7 +20,7 @@ public class UpdateContentOperationTest extends BaseOperationTest {
         final Operation op1 = new UpdateContentOperation("boo", "bar");
         final Operation op2 = new UpdateContentOperation("boo", "bar");
         Assert.assertEquals(op1, op2);
-        Assert.assertEquals(op1.hashCode(), op2.hashCode());
+        Assert.assertEquals((long) op1.hashCode(), (long) op2.hashCode());
         Assert.assertEquals(op1.toString(), op2.toString());
     }
 }

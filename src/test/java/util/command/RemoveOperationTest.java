@@ -20,7 +20,7 @@ public class RemoveOperationTest extends BaseOperationTest {
         final Operation op1 = new RemoveOperation("boo");
         final Operation op2 = new RemoveOperation("boo");
         Assert.assertEquals(op1, op2);
-        Assert.assertEquals(op1.hashCode(), op2.hashCode());
+        Assert.assertEquals((long) op1.hashCode(), (long) op2.hashCode());
         Assert.assertEquals(op1.toString(), op2.toString());
     }
 }

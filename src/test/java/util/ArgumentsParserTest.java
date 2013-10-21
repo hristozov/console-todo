@@ -4,7 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import util.command.*;
 
-@SuppressWarnings({"InstanceMethodNamingConvention", "DesignForExtension", "HardCodedStringLiteral", "DuplicateStringLiteralInspection"})
+@SuppressWarnings({"InstanceMethodNamingConvention", "DesignForExtension", "HardCodedStringLiteral",
+        "DuplicateStringLiteralInspection"})
 public class ArgumentsParserTest {
     private static Operation parse(final String... arguments) {
         return ArgumentsParser.parse(arguments);
@@ -17,9 +18,11 @@ public class ArgumentsParserTest {
 
     @Test
     public void testAddOperationCreationWithExplicitPriorities() {
-        Assert.assertEquals(new AddOperation("content", 1337), ArgumentsParserTest.parse("add", "content", "1337"));
+        Assert.assertEquals(new AddOperation("content", 1337),
+                ArgumentsParserTest.parse("add", "content", "1337"));
         Assert.assertEquals(new AddOperation("content", 0), ArgumentsParserTest.parse("add", "content", "0"));
-        Assert.assertEquals(new AddOperation("content", -5), ArgumentsParserTest.parse("add", "content", "-5"));
+        Assert.assertEquals(new AddOperation("content", -5),
+                ArgumentsParserTest.parse("add", "content", "-5"));
     }
 
     @Test(expected = ParserException.class)
@@ -59,7 +62,8 @@ public class ArgumentsParserTest {
 
     @Test
     public void testUpdateContentOperationCreation() {
-        Assert.assertEquals(new UpdateContentOperation("abab", "foo"), ArgumentsParserTest.parse("update-content", "abab", "foo"));
+        Assert.assertEquals(new UpdateContentOperation("abab", "foo"),
+                ArgumentsParserTest.parse("update-content", "abab", "foo"));
     }
 
     @Test(expected = ParserException.class)
@@ -74,7 +78,8 @@ public class ArgumentsParserTest {
 
     @Test
     public void testUpdatePriorityOperationCreation() {
-        Assert.assertEquals(new UpdatePriorityOperation("baz", 16), ArgumentsParserTest.parse("update-priority", "baz", "16"));
+        Assert.assertEquals(new UpdatePriorityOperation("baz", 16),
+                ArgumentsParserTest.parse("update-priority", "baz", "16"));
     }
 
     @Test(expected = ParserException.class)

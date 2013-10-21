@@ -1,3 +1,5 @@
+import com.mongodb.*;
+import dao.MongoTodoItemDao;
 import dao.TodoItemDao;
 import util.ArgumentsParser;
 import util.command.Operation;
@@ -13,6 +15,12 @@ public class ConsoleTodo {
     }
 
     private static TodoItemDao getDao() throws UnknownHostException {
-        return null;
+        ServerAddress address = new ServerAddress(
+                "localhost", 27017);
+        MongoClient client = new MongoClient(address);
+        DB database = client.getDB("sample-todo");
+        DBCollection todoCollection =
+                database.getCollection("todo");
+        return new MongoTodoItemDao(todoCollection);
     }
 }

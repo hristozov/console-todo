@@ -1,6 +1,7 @@
 package util.command;
 
 import org.jmock.Expectations;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ReadOperationTest extends BaseOperationTest {
@@ -13,5 +14,14 @@ public class ReadOperationTest extends BaseOperationTest {
             will(returnValue("bar"));
         }});
         readOperation.run();
+    }
+
+    @Test
+    public void testEqualsAndHashCode() {
+        final Operation op1 = new ReadOperation("boo");
+        final Operation op2 = new ReadOperation("boo");
+        Assert.assertEquals(op1, op2);
+        Assert.assertEquals(op1.hashCode(), op2.hashCode());
+        Assert.assertEquals(op1.toString(), op2.toString());
     }
 }

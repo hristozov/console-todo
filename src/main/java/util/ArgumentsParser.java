@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class ArgumentsParser {
     public static Operation parse(final String[] args) {
         if (args.length == 0) {
-            error("No arguments given.");
+            ArgumentsParser.error("No arguments given.");
         }
         final String operation = args[0];
         String[] operationArguments = new String[0];
@@ -22,11 +22,11 @@ public class ArgumentsParser {
             case "remove":
                 return ArgumentsParser.getRemoveOperation(operationArguments);
             case "update-content":
-                return getUpdateContentOperation(operationArguments);
+                return ArgumentsParser.getUpdateContentOperation(operationArguments);
             case "update-priority":
-                return getUpdatePriorityOperation(operationArguments);
+                return ArgumentsParser.getUpdatePriorityOperation(operationArguments);
             case "read":
-                return getReadOperation(operationArguments);
+                return ArgumentsParser.getReadOperation(operationArguments);
             default:
                 ArgumentsParser.error("Invalid arguments provided.");
         }

@@ -1,6 +1,7 @@
 package util.command;
 
 import org.jmock.Expectations;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class AddOperationTest extends BaseOperationTest {
@@ -24,5 +25,14 @@ public class AddOperationTest extends BaseOperationTest {
             will(returnValue("id2"));
         }});
         addOperation.run();
+    }
+
+    @Test
+    public void testEqualsAndHashCode() {
+        final Operation op1 = new AddOperation("aaa", 1337);
+        final Operation op2 = new AddOperation("aaa", 1337);
+        Assert.assertEquals(op1, op2);
+        Assert.assertEquals(op1.hashCode(), op2.hashCode());
+        Assert.assertEquals(op1.toString(), op2.toString());
     }
 }
